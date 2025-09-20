@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+
+<h1>IoT Showcase Simulation</h1>
+
+<div id="iot-box">
+    <% if (latestOrder) { %>
+        <p><strong>Product:</strong> <%= latestOrder.name %></p>
+        <p>Status: <span id="status"><%= latestOrder.status %></span></p>
+    <% } else { %>
+        <p>No orders yet</p>
+    <% } %>
+</div>
+
+<script src="/js/iotSimulation.js"></script>
+
+<%- include('partials/footer') %>

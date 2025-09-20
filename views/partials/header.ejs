@@ -1,0 +1,44 @@
+<style>
+/* Navigation Bar */
+nav {
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 15px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 0 0 10px 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Horizontal line below nav */
+nav + hr {
+    border: 0;
+    height: 2px;
+    background: #4CAF50;
+    margin: 0;
+}
+</style>
+
+<nav>
+    <a href="/artisan">Artisan</a>
+    <a href="/marketplace">Marketplace</a>
+    <a href="/order-history">Order History</a>
+    <!-- <a href="/iot-showcase">IoT Showcase</a> -->
+</nav>
+<hr>
