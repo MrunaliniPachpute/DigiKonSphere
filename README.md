@@ -29,7 +29,6 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 - **IoT:** Arduino / ESP32, TFT LCD 1.8-inch, LED lights
 - **AR/3D Previews:** WebAR / Three.js
 - **Payment Integration:** UPI APIs
-- **Figma Prototype Link:** [https://citron-trade-43110342.figma.site/]
 - Focuses on **interactive design, AI integration, multilingual support, and IoT simulation** for impactful presentation.
 
 ## Thank you
