@@ -1,9 +1,9 @@
 # DigiKonSphere - AI + IoT Artisan Marketplace
 <div align="center">
 
-![Underlined Heading](https://capsule-render.vercel.app/api?type=underline\&color=gradient\&height=80\&section=header\&text=DigiKonSphere%20-%20AI%20+%20IoT%20Artisan%20Marketplace\&fontSize=28\&animation=fadeIn\&fontAlignY=55)
+![Underlined Heading](https://capsule-render.vercel.app/api?type=underline&color=gradient&height=100&section=header&text=DigiKonSphere%20-%20AI%20%2B%20IoT%20Artisan%20Marketplace&fontSize=34&animation=fadeIn&fontAlignY=55)
 
-</div>  
+</div>
 ## Project Overview
 DigiKonSphere is an **AI and IoT-powered marketplace** connecting traditional artisans with global buyers. It aims to **empower artisans, preserve cultural heritage**, and provide buyers with an **interactive and immersive shopping experience**. The platform combines **AI-driven marketing**, **AR/3D product previews**, and a **physical IoT showcase**
 
