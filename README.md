@@ -1,5 +1,9 @@
 # DigiKonSphere - AI + IoT Artisan Marketplace
+<div align="center">
 
+![Underlined Heading](https://capsule-render.vercel.app/api?type=underline\&color=gradient\&height=80\&section=header\&text=DigiKonSphere%20-%20AI%20+%20IoT%20Artisan%20Marketplace\&fontSize=28\&animation=fadeIn\&fontAlignY=55)
+
+</div>  
 ## Project Overview
 DigiKonSphere is an **AI and IoT-powered marketplace** connecting traditional artisans with global buyers. It aims to **empower artisans, preserve cultural heritage**, and provide buyers with an **interactive and immersive shopping experience**. The platform combines **AI-driven marketing**, **AR/3D product previews**, and a **physical IoT showcase**
 
@@ -31,4 +35,11 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 - **Payment Integration:** UPI APIs
 - Focuses on **interactive design, AI integration, multilingual support, and IoT simulation** for impactful presentation.
 ---
-## Thank you
+
+<div align="center">
+
+## 🎉 Thank You
+
+![ThankYou](https://readme-typing-svg.herokuapp.com?font=Roboto+Slab\&size=28\&pause=1000\&color=FF6F61\&center=true\&vCenter=true\&width=600\&lines=Empowering+Artisans+Worldwide;Blending+AI+%26+IoT+for+Impact;Thank+You+for+Visiting+DigiKonSphere)
+
+</div>
