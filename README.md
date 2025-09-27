@@ -1,14 +1,12 @@
 # DigiKonSphere - AI + IoT Artisan Marketplace
 <div align="center">
-
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
-
 </div>
-
-
 ## Project Overview
 DigiKonSphere is an **AI and IoT-powered marketplace** connecting traditional artisans with global buyers. It aims to **empower artisans, preserve cultural heritage**, and provide buyers with an **interactive and immersive shopping experience**. The platform combines **AI-driven marketing**, **AR/3D product previews**, and a **physical IoT showcase**
-
+<div align="center">
+![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+</div>
 ## Prototype
 This repository contains a **Figma prototype** of the solution. The prototype demonstrates key workflows including:
 - **Prototype Link:** [https://citron-trade-43110342.figma.site/]
@@ -18,7 +16,9 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 - Order placement with **IoT showcase box simulation** (LED & TFT display)
 - Buyer profile and **order history**
 - **Multi-language support** (English, Hindi, and other regional languages for rural artisans)
-
+<div align="center">
+![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+</div>
 ## Key Features
 - **Artisan Dashboard:** Upload products, set prices, manage inventory, generate AI stories/videos.
 - **Buyer Marketplace:** Browse products, view AR/3D previews, place orders, and view order history.
@@ -26,7 +26,9 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 - **AI Marketing Tools:** Auto product description, storytelling, video generation, and social media push.
 - **Delivery Integration:** Supports APIs like Amazon, Flipkart, or India Post (conceptual).
 - **Multilingual Support:** Ensures artisans can manage products and marketing in multiple languages.
-
+<div align="center">
+![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+</div>
 ## Technologies (Prototype)
 - **Frontend/Templating:** EJS, HTML, CSS, JavaScript
 - **Backend (planned):** Node.js, Express.js
@@ -36,14 +38,13 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 - **AR/3D Previews:** WebAR / Three.js
 - **Payment Integration:** UPI APIs
 - Focuses on **interactive design, AI integration, multilingual support, and IoT simulation** for impactful presentation.
----
-
 <div align="center">
-
+![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+</div>
+<div align="center">
 ## 🎉 Thank You
-
+  
 ![ThankYou](https://readme-typing-svg.herokuapp.com?font=Roboto+Slab\&size=28\&pause=1000\&color=FF6F61\&center=true\&vCenter=true\&width=600\&lines=Empowering+Artisans+Worldwide;Blending+AI+%26+IoT+for+Impact;Thank+You+for+Visiting+DigiKonSphere)
-
 </div>
 <div align="center">
 
