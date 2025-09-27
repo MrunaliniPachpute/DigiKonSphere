@@ -35,6 +35,7 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 </div>
 
 <h3>Key Features</h3>
+
 - **Artisan Dashboard:** Upload products, set prices, manage inventory, generate AI stories/videos.
 - **Buyer Marketplace:** Browse products, view AR/3D previews, place orders, and view order history.
 - **IoT Showcase Box:** Displays product image on TFT LCD and LED indicates order status (green for success, red for issue).
@@ -49,6 +50,7 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 </div>
 
 <h3>Technologies (Prototype)</h3>
+
 - **Frontend/Templating:** EJS, HTML, CSS, JavaScript
 - **Backend (planned):** Node.js, Express.js
 - **Database (planned):** MongoDB / Firebase
