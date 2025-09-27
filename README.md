@@ -30,5 +30,5 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 - **AR/3D Previews:** WebAR / Three.js
 - **Payment Integration:** UPI APIs
 - Focuses on **interactive design, AI integration, multilingual support, and IoT simulation** for impactful presentation.
-
+---
 ## Thank you
