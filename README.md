@@ -1,5 +1,11 @@
-<p align="center" style="font-size: 32px;">DigiKonSphere - AI + IoT Artisan Marketplace</p>
+<style>
+  .centered-heading {
+    text-align: center;
+    font-size: 32px;
+  }
+</style>
 
+<p class="centered-heading">DigiKonSphere - AI + IoT Artisan Marketplace</p>
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
