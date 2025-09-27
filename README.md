@@ -1,4 +1,7 @@
 <h1 align="center">DigiKonSphere - AI + IoT Artisan Marketplace</h1>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer"/>
+
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
