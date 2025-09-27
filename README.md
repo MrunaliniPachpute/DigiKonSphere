@@ -14,7 +14,7 @@ DigiKonSphere is an **AI and IoT-powered marketplace** connecting traditional ar
 
 </div>
 
-<h2>Prototype</h2>
+<h3>Prototype</h3>
 This repository contains a **Figma prototype** of the solution. The prototype demonstrates key workflows including:
 - **Prototype Link:** [https://citron-trade-43110342.figma.site/]
 - Artisan product upload with optional **AI story/video generation**
@@ -30,7 +30,7 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 
 </div>
 
-<h2>Key Features</h2>
+<h3>Key Features</h3>
 - **Artisan Dashboard:** Upload products, set prices, manage inventory, generate AI stories/videos.
 - **Buyer Marketplace:** Browse products, view AR/3D previews, place orders, and view order history.
 - **IoT Showcase Box:** Displays product image on TFT LCD and LED indicates order status (green for success, red for issue).
@@ -44,7 +44,7 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 
 </div>
 
-<h2>Technologies (Prototype)</h2>
+<h3>Technologies (Prototype)</h3>
 - **Frontend/Templating:** EJS, HTML, CSS, JavaScript
 - **Backend (planned):** Node.js, Express.js
 - **Database (planned):** MongoDB / Firebase
