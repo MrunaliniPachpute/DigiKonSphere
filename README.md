@@ -6,6 +6,7 @@
 </div>
 
 <h3>Project Overview</h3>
+
 - DigiKonSphere is an **AI and IoT-powered marketplace** connecting traditional artisans with global buyers. 
 - It aims to **empower artisans, preserve cultural heritage**, and provide buyers with an **interactive and immersive shopping experience**. 
 - The platform combines **AI-driven marketing**, **AR/3D product previews**, and a **physical IoT showcase**
@@ -17,6 +18,7 @@
 </div>
 
 <h3>Prototype</h3>
+
 This repository contains a **Figma prototype** of the solution. The prototype demonstrates key workflows including:
 - **Prototype Link:** [https://citron-trade-43110342.figma.site/]
 - Artisan product upload with optional **AI story/video generation**
