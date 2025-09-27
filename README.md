@@ -4,19 +4,7 @@
 ![Underlined Heading](https://capsule-render.vercel.app/api?type=underline&color=gradient&height=100&section=header&text=DigiKonSphere%20-%20AI%20%2B%20IoT%20Artisan%20Marketplace&fontSize=34&animation=fadeIn&fontAlignY=55)
 
 </div>
-<div align="center">
 
-![Hackathon](https://img.shields.io/badge/Made%20for-Hackathons-ff69b4?style=for-the-badge&logo=hackaday)
-![AI](https://img.shields.io/badge/AI-Powered-blueviolet?style=for-the-badge&logo=openai)
-![IoT](https://img.shields.io/badge/IoT-ESP32%20%7C%20Arduino-orange?style=for-the-badge&logo=arduino)
-![Frontend](https://img.shields.io/badge/Frontend-EJS%20%7C%20JS-yellow?style=for-the-badge&logo=javascript)
-![Backend](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-green?style=for-the-badge&logo=nodedotjs)
-![Database](https://img.shields.io/badge/Database-MongoDB%20%7C%20Firebase-brightgreen?style=for-the-badge&logo=mongodb)
-![Cloud](https://img.shields.io/badge/Cloud-Azure-blue?style=for-the-badge&logo=microsoftazure)
-![AR/3D](https://img.shields.io/badge/AR%20%2F%203D-WebAR%20%7C%20Three.js-lightgrey?style=for-the-badge&logo=three.js)
-![Payments](https://img.shields.io/badge/Payments-UPI%20APIs-red?style=for-the-badge&logo=googlepay)
-
-</div>
 ## Project Overview
 DigiKonSphere is an **AI and IoT-powered marketplace** connecting traditional artisans with global buyers. It aims to **empower artisans, preserve cultural heritage**, and provide buyers with an **interactive and immersive shopping experience**. The platform combines **AI-driven marketing**, **AR/3D product previews**, and a **physical IoT showcase**
 
@@ -54,5 +42,18 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 ## 🎉 Thank You
 
 ![ThankYou](https://readme-typing-svg.herokuapp.com?font=Roboto+Slab\&size=28\&pause=1000\&color=FF6F61\&center=true\&vCenter=true\&width=600\&lines=Empowering+Artisans+Worldwide;Blending+AI+%26+IoT+for+Impact;Thank+You+for+Visiting+DigiKonSphere)
+
+</div>
+<div align="center">
+
+![Hackathon](https://img.shields.io/badge/Made%20for-Hackathons-ff69b4?style=for-the-badge&logo=hackaday)
+![AI](https://img.shields.io/badge/AI-Powered-blueviolet?style=for-the-badge&logo=openai)
+![IoT](https://img.shields.io/badge/IoT-ESP32%20%7C%20Arduino-orange?style=for-the-badge&logo=arduino)
+![Frontend](https://img.shields.io/badge/Frontend-EJS%20%7C%20JS-yellow?style=for-the-badge&logo=javascript)
+![Backend](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-green?style=for-the-badge&logo=nodedotjs)
+![Database](https://img.shields.io/badge/Database-MongoDB%20%7C%20Firebase-brightgreen?style=for-the-badge&logo=mongodb)
+![Cloud](https://img.shields.io/badge/Cloud-Azure-blue?style=for-the-badge&logo=microsoftazure)
+![AR/3D](https://img.shields.io/badge/AR%20%2F%203D-WebAR%20%7C%20Three.js-lightgrey?style=for-the-badge&logo=three.js)
+![Payments](https://img.shields.io/badge/Payments-UPI%20APIs-red?style=for-the-badge&logo=googlepay)
 
 </div>
