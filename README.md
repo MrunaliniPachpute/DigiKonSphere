@@ -1,6 +1,5 @@
 <p align="center">
   <h1>DIGIKONSPHERE:</h1>
-  <br>
   <img src="https://readme-typing-svg.herokuapp.com?font=Roboto+Slab&size=28&pause=1000&color=FF6F61&center=true&vCenter=true&width=600&lines=AI+%2B+IoT+Artisan+Marketplace" />
 </p>
 
