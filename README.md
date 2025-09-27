@@ -1,6 +1,4 @@
-<h1 align="center">DigiKonSphere - AI + IoT Artisan Marketplace</h1>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer"/>
+<p align="center" font="32px">DigiKonSphere - AI + IoT Artisan Marketplace</p>
 
 <div align="center">
 
@@ -87,3 +85,4 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 ![Payments](https://img.shields.io/badge/Payments-UPI%20APIs-red?style=for-the-badge&logo=googlepay)
 
 </div>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer"/>
