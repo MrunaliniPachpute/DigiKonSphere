@@ -40,7 +40,9 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 - **Multilingual Support:** Ensures artisans can manage products and marketing in multiple languages.
   
 <div align="center">
+  
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 </div>
 
 ## Technologies (Prototype)
@@ -54,7 +56,9 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 - Focuses on **interactive design, AI integration, multilingual support, and IoT simulation** for impactful presentation.
   
 <div align="center">
+  
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 </div>
 
 <div align="center">
