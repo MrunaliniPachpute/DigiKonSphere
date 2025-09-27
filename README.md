@@ -54,16 +54,50 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 
 </div>
 
-<h3>Technologies (Prototype)</h3>
+<h3>Technologies</h3>
 
-- **Frontend/Templating:** EJS, HTML, CSS, JavaScript
-- **Backend (planned):** Node.js, Express.js
-- **Database (planned):** MongoDB / Firebase
-- **AI & Cloud:** Azure Cognitive Services / Azure OpenAI
-- **IoT:** Arduino / ESP32, TFT LCD 1.8-inch, LED lights
-- **AR/3D Previews:** WebAR / Three.js
-- **Payment Integration:** UPI APIs
-- Focuses on **interactive design, AI integration, multilingual support, and IoT simulation** for impactful presentation.
+<table align="center" style="border-collapse: collapse; width: 80%; font-family: 'Courier New', monospace;">
+  <thead>
+    <tr style="background-color: #FFDAB9; color: #8B4513; font-size: 16px;">
+      <th style="padding: 10px; border: 2px solid #8B4513;">Category</th>
+      <th style="padding: 10px; border: 2px solid #8B4513;">Technologies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: #FFF5E1;">
+      <td style="padding: 8px; border: 2px solid #8B4513;">🖥️ Frontend / Templating</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">EJS, HTML, CSS, JavaScript</td>
+    </tr>
+    <tr style="background-color: #FFE4C4;">
+      <td style="padding: 8px; border: 2px solid #8B4513;">⚙️ Backend (planned)</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">Node.js, Express.js</td>
+    </tr>
+    <tr style="background-color: #FFF5E1;">
+      <td style="padding: 8px; border: 2px solid #8B4513;">💾 Database (planned)</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">MongoDB / Firebase</td>
+    </tr>
+    <tr style="background-color: #FFE4C4;">
+      <td style="padding: 8px; border: 2px solid #8B4513;">☁️ AI & Cloud</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">Azure Cognitive Services / Azure OpenAI</td>
+    </tr>
+    <tr style="background-color: #FFF5E1;">
+      <td style="padding: 8px; border: 2px solid #8B4513;">🔌 IoT</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">Arduino / ESP32, TFT LCD 1.8-inch, LED lights</td>
+    </tr>
+    <tr style="background-color: #FFE4C4;">
+      <td style="padding: 8px; border: 2px solid #8B4513;">🕶️ AR / 3D Previews</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">WebAR / Three.js</td>
+    </tr>
+    <tr style="background-color: #FFF5E1;">
+      <td style="padding: 8px; border: 2px solid #8B4513;">💳 Payment Integration</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">UPI APIs</td>
+    </tr>
+  </tbody>
+</table>
+
+<p align="center" style="font-style: italic; color: #8B4513; margin-top: 10px;">
+Focuses on <strong>interactive design, AI integration, multilingual support, and IoT simulation</strong> for impactful presentation.
+</p>
   
 <div align="center">
   
