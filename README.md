@@ -1,6 +1,4 @@
-<p align="center">
-  # **DIGIKONSPHERE:** <img src="https://readme-typing-svg.herokuapp.com?font=Roboto+Slab&size=28&pause=1000&color=FF6F61&center=true&vCenter=true&width=400&lines=AI+%2B+IoT+Artisan+Marketplace" />
-</p>
+# **DIGIKONSPHERE:** <img src="https://readme-typing-svg.herokuapp.com?font=Roboto+Slab&size=28&pause=1000&color=FF6F61&center=true&vCenter=true&width=400&lines=AI+%2B+IoT+Artisan+Marketplace" />
 
 
 <div align="center">
