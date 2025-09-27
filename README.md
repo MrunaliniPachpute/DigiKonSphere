@@ -96,7 +96,7 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 </table>
 
 <p align="center" style="font-style: italic; color: #8B4513; margin-top: 10px;">
-Focuses on <strong>interactive design, AI integration, multilingual support, and IoT simulation</strong> for impactful presentation.
+Focuses on <strong>interactive design, AI integration, multilingual support, and IoT simulation</strong> for producing impact.
 </p>
   
 <div align="center">
