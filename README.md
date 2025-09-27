@@ -1,5 +1,7 @@
-<h1 align="center">DigiKonSphere - AI + IoT Artisan Marketplace lines=Handwoven+Crafts;Terracotta+Pottery;Intricate+Embroidery;Eco-friendly+Baskets
-</h1>
+<h1 align="center">DigiKonSphere - AI + IoT Artisan Marketplace</h1>
+
+lines=Handwoven+Crafts;Terracotta+Pottery;Intricate+Embroidery;Eco-friendly+Baskets
+
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
