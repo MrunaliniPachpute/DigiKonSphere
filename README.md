@@ -1,6 +1,7 @@
 <h1 align="center">DigiKonSphere - AI + IoT Artisan Marketplace</h1>
 
-lines=Handwoven+Crafts;Terracotta+Pottery;Intricate+Embroidery;Eco-friendly+
+<img src="https://readme-typing-svg.herokuapp.com?font=Roboto+Slab&size=28&pause=1000&color=FF6F61&center=true&vCenter=true&width=600&lines=Handwoven+Crafts;Terracotta+Pottery;Intricate+Embroidery;Eco-friendly+Baskets" />
+
 
 <div align="center">
 
