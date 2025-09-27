@@ -62,7 +62,6 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 </div>
 
 <div align="center">
-## 🎉 Thank You
   
 ![ThankYou](https://readme-typing-svg.herokuapp.com?font=Roboto+Slab\&size=28\&pause=1000\&color=FF6F61\&center=true\&vCenter=true\&width=600\&lines=Empowering+Artisans+Worldwide;Blending+AI+%26+IoT+for+Impact;Thank+You+for+Visiting+DigiKonSphere)
 </div>
