@@ -1,7 +1,8 @@
-<h1 align="center">DigiKonSphere - AI + IoT Artisan Marketplace</h1>
+<h1 align="center">DigiKonSphere
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Roboto+Slab&size=28&pause=1000&color=FF6F61&center=true&vCenter=true&width=600&lines=Handwoven+Crafts;Terracotta+Pottery;Intricate+Embroidery;Eco-friendly+Baskets" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Roboto+Slab&size=28&pause=1000&color=FF6F61&center=true&vCenter=true&width=600&lines=- AI+IoT+Artisan+Marketplace" />
 
+</h1>
 
 <div align="center">
 
