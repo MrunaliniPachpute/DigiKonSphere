@@ -6,7 +6,9 @@
 </div>
 
 <h3>Project Overview</h3>
-DigiKonSphere is an **AI and IoT-powered marketplace** connecting traditional artisans with global buyers. It aims to **empower artisans, preserve cultural heritage**, and provide buyers with an **interactive and immersive shopping experience**. The platform combines **AI-driven marketing**, **AR/3D product previews**, and a **physical IoT showcase**
+- DigiKonSphere is an **AI and IoT-powered marketplace** connecting traditional artisans with global buyers. 
+- It aims to **empower artisans, preserve cultural heritage**, and provide buyers with an **interactive and immersive shopping experience**. 
+- The platform combines **AI-driven marketing**, **AR/3D product previews**, and a **physical IoT showcase**
 
 <div align="center">
   
