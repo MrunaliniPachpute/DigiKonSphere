@@ -1,11 +1,11 @@
-# DigiKonSphere - AI + IoT Artisan Marketplace
+<h1 align="center">DigiKonSphere - AI + IoT Artisan Marketplace</h1>
 <div align="center">
 
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 </div>
 
-## Project Overview
+<h2>Project Overview></h2>
 DigiKonSphere is an **AI and IoT-powered marketplace** connecting traditional artisans with global buyers. It aims to **empower artisans, preserve cultural heritage**, and provide buyers with an **interactive and immersive shopping experience**. The platform combines **AI-driven marketing**, **AR/3D product previews**, and a **physical IoT showcase**
 
 <div align="center">
@@ -14,7 +14,7 @@ DigiKonSphere is an **AI and IoT-powered marketplace** connecting traditional ar
 
 </div>
 
-## Prototype
+<h2>Prototype</h2>
 This repository contains a **Figma prototype** of the solution. The prototype demonstrates key workflows including:
 - **Prototype Link:** [https://citron-trade-43110342.figma.site/]
 - Artisan product upload with optional **AI story/video generation**
@@ -30,7 +30,7 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 
 </div>
 
-## Key Features
+<h2>Key Features</h2>
 - **Artisan Dashboard:** Upload products, set prices, manage inventory, generate AI stories/videos.
 - **Buyer Marketplace:** Browse products, view AR/3D previews, place orders, and view order history.
 - **IoT Showcase Box:** Displays product image on TFT LCD and LED indicates order status (green for success, red for issue).
@@ -44,7 +44,7 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 
 </div>
 
-## Technologies (Prototype)
+<h2>Technologies (Prototype)</h2>
 - **Frontend/Templating:** EJS, HTML, CSS, JavaScript
 - **Backend (planned):** Node.js, Express.js
 - **Database (planned):** MongoDB / Firebase
