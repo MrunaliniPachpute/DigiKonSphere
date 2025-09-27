@@ -1,6 +1,6 @@
 <p align="center">
-  <h1 align="center">DIGIKONSPHERE:</h1>
-  <img align="center" src="https://readme-typing-svg.herokuapp.com?font=Roboto+Slab&size=28&pause=10000&color=FF6F61&center=true&vCenter=true&width=600&lines=AI+%2B+IoT+Artisan+Marketplace" />
+  <img src="https://dummyimage.com/300x60/000/fff&text=DIGIKONSPHERE" alt="DIGIKONSPHERE" style="vertical-align:middle;">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Roboto+Slab&size=28&pause=1000&color=FF6F61&center=true&vCenter=true&width=400&lines=AI+%2B+IoT+Artisan+Marketplace" style="vertical-align:middle;">
 </p>
 
 
