@@ -86,8 +86,8 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 ![AR/3D](https://img.shields.io/badge/AR%20%2F%203D-WebAR%20%7C%20Three.js-lightgrey?style=for-the-badge&logo=three.js)
 ![Payments](https://img.shields.io/badge/Payments-UPI%20APIs-red?style=for-the-badge&logo=googlepay)
 
-</div>
-<div align="cetner>
-  <img src="https://readme-typing-svg.herokuapp.com?font=Handlee&size=26&pause=1000&color=FFA500&center=true&vCenter=true&width=600&lines=Handmade+With+Love;Global+Marketplace+For+Artisans;Crafts+Meet+Technology"/>
+<img src="https://readme-typing-svg.herokuapp.com?font=Handlee&size=26&pause=1000&color=FFA500&center=true&vCenter=true&width=600&lines=Handmade+With+Love;Global+Marketplace+For+Artisans;Crafts+Meet+Technology"/>
+
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer"/>
+
 </div>
