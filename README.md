@@ -1,4 +1,4 @@
-<p align="center"  style="font-size: 32px;">DigiKonSphere - AI + IoT Artisan Marketplace</p>
+<p align="center" style="font-size: 32px;">DigiKonSphere - AI + IoT Artisan Marketplace</p>
 
 <div align="center">
 
