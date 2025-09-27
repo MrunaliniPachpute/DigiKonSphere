@@ -32,5 +32,4 @@ This repository contains a **Figma prototype** of the solution. The prototype de
 - **Figma Prototype Link:** [https://citron-trade-43110342.figma.site/]
 - Focuses on **interactive design, AI integration, multilingual support, and IoT simulation** for impactful presentation.
 
-## License
-This project is for **hackathon use only** and not yet commercially deployed.
+## Thank you
