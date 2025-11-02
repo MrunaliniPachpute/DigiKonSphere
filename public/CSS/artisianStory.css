@@ -20,9 +20,7 @@ body {
 
 /* ===== HERO ===== */
 .hero {
-  background: #f9f9fb;
-  border-bottom: 1px solid var(--border);
-  padding: 4rem 1rem 3rem;
+  margin-top: 15px;
   text-align: center;
 }
 
