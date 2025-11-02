@@ -25,6 +25,6 @@ const Artisian = require("../models/Artisian");
       done(err);
     }
   });
-console.log("✅ Passport strategies registered");
+console.log("Passport strategies registered");
 
 module.exports = passport;

@@ -33,7 +33,7 @@ router.post("/verifyPayment",isRoleUser, userController.userPaymentVerification)
 router.post("/codOrder" , isRoleUser, userController.COD_Order )
 
 //cart route
-router.post("/cart/remove/:id", isRoleUser,userController.removeFromCart)
+router.get("/cart/remove/:id", isRoleUser,userController.removeFromCart)
 
 //order route
 router.get("/product/:id/addOrder", isRoleUser, userController.orderProduct);
