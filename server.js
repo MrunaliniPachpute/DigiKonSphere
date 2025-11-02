@@ -55,7 +55,7 @@ app.use(bodyParser.json());
 app.use("/models", express.static(path.join(__dirname, "TripoSR/outputs")));
 
 // basic routes
-app.get("/", (req, res) => res.send("Server working well"));
+app.get("/", (req, res) => res.send(`Server working well..Click here to view homepage : https://digikonsphere.onrender.com/home`));
 
 app.get("/home", async (req, res) => {
   try {
