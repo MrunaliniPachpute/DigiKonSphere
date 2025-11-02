@@ -7,6 +7,7 @@ const connectDB = require("./config/db");
 connectDB();
 const setupMiddleware = require("./middlewares/middleware");
 setupMiddleware(app);
+app.use(express.static(path.join(__dirname, 'public')));
 
 const { SerialPort, ReadlineParser } = require("serialport");
 const { Server } = require("socket.io");
@@ -18,7 +19,6 @@ const io = new Server(server);
 let port;
 let parser;
 
-// ✅ Safe SerialPort initialization
 try {
   port = new SerialPort({ path: "COM4", baudRate: 9600 });
 
