@@ -7,7 +7,6 @@ const connectDB = require("./config/db");
 connectDB();
 const setupMiddleware = require("./middlewares/middleware");
 setupMiddleware(app);
-app.use(express.static(path.join(__dirname, 'public')));
 
 const { SerialPort, ReadlineParser } = require("serialport");
 const { Server } = require("socket.io");
