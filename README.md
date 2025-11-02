@@ -40,7 +40,9 @@ The project demonstrates key workflows including:
 - **Multi-language support** (English, Hindi, and other regional languages for rural artisans)
 
 Here’s a glimpse of the **IOT SETUP** connects the gyroscope sensor with arduino nano to the system, capturing real-time 3d glb files rotation data. :
-<img src="https://github.com/user-attachments/assets/5e50f069-8d5b-48fa-a465-2d1a17ab258f" width="400"/>
+| Screenshot 1 | Screenshot 2 |
+|:-------------:|:-------------:|
+| <img src="https://github.com/user-attachments/assets/5e50f069-8d5b-48fa-a465-2d1a17ab258f" width="400"/> | <img width="400" alt="Screenshot (1200)" src="https://github.com/user-attachments/assets/79ed5c72-6981-4bb8-bac4-50d27ae9878a" /> |
 
 <div align="center">
   
