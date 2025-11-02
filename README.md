@@ -22,10 +22,10 @@
 
 </div>
 
-<h3>Prototype</h3>
+<h3>Website</h3>
 
-This repository contains a **Figma prototype** of the solution. The prototype demonstrates key workflows including:
-- **Prototype Link:** [https://citron-trade-43110342.figma.site/]
+The project demonstrates key workflows including:
+- **Deployment Link:** https://digikonsphere.onrender.com/home
 - Artisan product upload with optional **AI story/video generation**
 - Buyer browsing via web/VR or IoT TFT LCD
 - AR/3D product preview
