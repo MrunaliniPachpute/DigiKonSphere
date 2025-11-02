@@ -1,0 +1,381 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Product Try-On</title>
+  <style>
+  :root {
+    --accent: #6c63ff;
+    --bg: #f9f9fb;
+    --card-bg: #fff;
+    --text: #222;
+    --muted: #777;
+    --radius: 14px;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  h2 {
+    color: var(--accent);
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    margin: 18px;
+  }
+
+  #controls {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 720px;
+  }
+
+  #controls div {
+    margin-bottom: 8px;
+  }
+
+  #video {
+    display: none;
+  }
+
+  video,
+  canvas {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background: #eee;
+    width: 640px;
+    max-width: 90vw;
+    height: auto;
+  }
+
+  /* 🔹 Placement Controls Styling */
+  #placementControls {
+    margin-top: 18px;
+    bottom: 24px;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    border-radius: 50px;
+    padding: 12px 24px;
+    transition: 0.3s ease;
+    backdrop-filter: blur(8px);
+    z-index: 10;
+    align-self: center;
+  }
+
+  #placementControls label {
+    font-weight: 500;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #scaleSlider {
+    width: 160px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  #scaleSlider:hover {
+    transform: scale(1.03);
+  }
+
+  #resetBtn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 3px 6px rgba(108, 99, 255, 0.3);
+  }
+
+  #resetBtn:hover {
+    background: #584df2;
+    transform: translateY(-2px);
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  /* 🔸 Mobile Responsive */
+  @media (max-width: 600px) {
+    #placementControls {
+      flex-direction: column;
+      gap: 12px;
+      bottom: 16px;
+      padding: 16px;
+      border-radius: 18px;
+      width: 90%;
+    }
+
+    #scaleSlider {
+      width: 100%;
+    }
+
+    #resetBtn {
+      width: 100%;
+    }
+  }
+  #video{
+    display: none;
+  }
+</style>
+
+</head>
+
+<body>
+  <h2>Try On - <%= productType %></h2>
+
+  <div id="controls">
+    <!-- <div><strong>Original:</strong> <img src="<%= originalImage %>" alt="original" style="height:60px; vertical-align:middle"></div>
+    <div><strong>Overlay (bg removed):</strong> <img src="<%= resultImage %>" alt="result" style="height:60px; vertical-align:middle"></div> -->
+    <p id="instructions"></p>
+  </div>
+
+  <video id="video" autoplay playsinline width="640" height="480"></video>
+  <canvas id="canvas" width="640" height="480"></canvas>
+
+  <div id="placementControls" class="hidden">
+    <label>Scale: <input id="scaleSlider" type="range" min="0.1" max="3" step="0.01" value="1"></label>
+    <button id="resetBtn">Reset</button>
+  </div>
+
+  <script>
+  (async () => {
+    const PRODUCT_TYPE = "<%= productType %>";
+    const OVERLAY_DATA_URL = "<%= resultImage %>";
+    const ORIGINAL_IMAGE = "<%= originalImage %>";
+
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const instructions = document.getElementById('instructions');
+    const placementControls = document.getElementById('placementControls');
+    const scaleSlider = document.getElementById('scaleSlider');
+    const resetBtn = document.getElementById('resetBtn');
+
+    let overlayImg = new Image();
+    overlayImg.src = OVERLAY_DATA_URL;
+
+    async function startCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false });
+        video.srcObject = stream;
+        await video.play();
+        console.log("✅ Camera works");
+      } catch (err) {
+        instructions.innerText = 'Unable to access camera: ' + (err.message || err);
+        console.error(err);
+      }
+    }
+
+    // ------------------------
+    // JEWELLERY: FaceMesh
+    // ------------------------
+    if (PRODUCT_TYPE === 'jewellery') {
+      instructions.innerText = 'Jewellery mode: necklace will follow your neck using FaceMesh. Please allow camera access.';
+      placementControls.classList.remove('hidden');
+
+      async function loadFaceMeshLibs() {
+        const libs = [
+          'https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js',
+          'https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js',
+          'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js'
+        ];
+        for (const src of libs) {
+          if (!document.querySelector(`script[src="${src}"]`)) {
+            await new Promise((resolve, reject) => {
+              const s = document.createElement('script');
+              s.src = src;
+              s.onload = resolve;
+              s.onerror = () => reject(`Failed to load ${src}`);
+              document.head.appendChild(s);
+            });
+          }
+        }
+      }
+
+      await loadFaceMeshLibs();
+      console.log("typeof FaceMesh after load:", typeof FaceMesh);
+
+      await startCamera();
+
+      if (typeof FaceMesh === 'undefined' || typeof Camera === 'undefined') {
+        instructions.innerText = '❌ FaceMesh failed to load. Check console for errors.';
+        return;
+      }
+
+      const faceMesh = new FaceMesh({
+        locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`,
+      });
+
+      faceMesh.setOptions({
+        maxNumFaces: 1,
+        refineLandmarks: true,
+        minDetectionConfidence: 0.5,
+        minTrackingConfidence: 0.5,
+      });
+
+      faceMesh.onResults(onResults);
+
+      const cam = new Camera(video, {
+        onFrame: async () => await faceMesh.send({ image: video }),
+        width: 640,
+        height: 480,
+      });
+      cam.start();
+
+      function onResults(results) {
+        if (!video.videoWidth) return;
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        if (!overlayImg.complete) return;
+
+        if (results.multiFaceLandmarks && results.multiFaceLandmarks.length > 0) {
+          const landmarks = results.multiFaceLandmarks[0];
+          const chin = landmarks[152];
+          const leftJaw = landmarks[234];
+          const rightJaw = landmarks[454];
+
+          const chinX = chin.x * canvas.width;
+          const chinY = chin.y * canvas.height;
+          const leftX = leftJaw.x * canvas.width;
+          const rightX = rightJaw.x * canvas.width;
+
+          const jawWidth = Math.abs(rightX - leftX);
+          const scale = parseFloat(scaleSlider.value) || 1;
+          const width = jawWidth * 1.4 * scale;
+          const height = overlayImg.height * (width / overlayImg.width);
+
+          const x = chinX - width / 2;
+          const y = chinY + height * 0.05;
+          ctx.drawImage(overlayImg, x, y, width, height);
+        }
+      }
+    }
+
+    // ------------------------
+    // POTTERY / WALL_DECOR
+    // ------------------------
+    else if (PRODUCT_TYPE === 'pottery' || PRODUCT_TYPE === 'wall_decor') {
+      instructions.innerText = 'Click where you want the product to appear. Use the scale slider to resize. Drag to move after placement.';
+      placementControls.classList.remove('hidden');
+      await startCamera();
+
+      let placed = false;
+      let pos = { x: canvas.width / 2, y: canvas.height / 2 };
+      let currentScale = parseFloat(scaleSlider.value) || 1;
+      let dragging = false;
+      let dragOffset = { x: 0, y: 0 };
+
+      function draw() {
+        if (video.readyState >= 2) {
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        if (overlayImg.complete && placed) {
+          const width = overlayImg.width * currentScale;
+          const height = overlayImg.height * (width / overlayImg.width);
+          const x = pos.x - width / 2;
+          const y = pos.y - height / 2;
+          ctx.drawImage(overlayImg, x, y, width, height);
+        }
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+
+      canvas.addEventListener('click', (ev) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = (ev.clientX - rect.left) * (canvas.width / rect.width);
+        const y = (ev.clientY - rect.top) * (canvas.height / rect.height);
+        pos = { x, y };
+        placed = true;
+      });
+
+      canvas.addEventListener('pointerdown', (ev) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = (ev.clientX - rect.left) * (canvas.width / rect.width);
+        const y = (ev.clientY - rect.top) * (canvas.height / rect.height);
+        const width = overlayImg.width * currentScale;
+        const height = overlayImg.height * (width / overlayImg.width);
+        const x0 = pos.x - width / 2, y0 = pos.y - height / 2;
+        if (x >= x0 && x <= x0 + width && y >= y0 && y <= y0 + height) {
+          dragging = true;
+          dragOffset.x = x - pos.x;
+          dragOffset.y = y - pos.y;
+        }
+      });
+
+      canvas.addEventListener('pointermove', (ev) => {
+        if (!dragging) return;
+        const rect = canvas.getBoundingClientRect();
+        const x = (ev.clientX - rect.left) * (canvas.width / rect.width);
+        const y = (ev.clientY - rect.top) * (canvas.height / rect.height);
+        pos.x = x - dragOffset.x;
+        pos.y = y - dragOffset.y;
+      });
+
+      window.addEventListener('pointerup', () => dragging = false);
+
+      scaleSlider.addEventListener('input', (ev) => currentScale = parseFloat(ev.target.value));
+      resetBtn.addEventListener('click', () => {
+        placed = false;
+        pos = { x: canvas.width / 2, y: canvas.height / 2 };
+        scaleSlider.value = 1;
+        currentScale = 1;
+      });
+    }
+
+    // ------------------------
+    // OTHER
+    // ------------------------
+    else {
+      instructions.innerText = 'Preview mode for other product types.';
+      placementControls.classList.remove('hidden');
+      await startCamera();
+
+      let scale = parseFloat(scaleSlider.value) || 1;
+      function drawOther() {
+        if (video.readyState >= 2) {
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        if (overlayImg.complete) {
+          const width = overlayImg.width * scale;
+          const height = overlayImg.height * (width / overlayImg.width);
+          const x = (canvas.width - width) / 2;
+          const y = (canvas.height - height) / 2;
+          ctx.drawImage(overlayImg, x, y, width, height);
+        }
+        requestAnimationFrame(drawOther);
+      }
+      drawOther();
+
+      scaleSlider.addEventListener('input', (ev) => scale = parseFloat(ev.target.value));
+      resetBtn.addEventListener('click', () => scaleSlider.value = 1);
+    }
+  })();
+  </script>
+</body>
+</html>

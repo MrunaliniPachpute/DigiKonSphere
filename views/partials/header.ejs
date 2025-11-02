@@ -1,0 +1,32 @@
+<header>
+  <nav>
+    <div>
+      <div>
+        <img src="/images/DigiKonSpherelogo.png" />
+        <a href="/home">DijikonSphere</a>
+      </div>
+      <a href="/home">Home</a>
+    </div>
+    <div>
+      <% if(!currentUser){ %>
+      <form action="/user/signUp" method="get">
+        <button style="all: unset; cursor: pointer"><a>SignUp</a></button>
+      </form>
+      <form action="/user/login" method="get">
+        <button style="all: unset; cursor: pointer"><a>Login</a></button>
+      </form>
+      <% } else { %> <% if (currentUser.constructor.modelName==="Artisian" ){%>
+        <a href="http://localhost:3000/artisian/dashboard">My Account</a>
+      <% }else{ %>
+          <a href="http://localhost:3000/user/dashboard">My Account</a>
+      <% } %>
+      <form action="/logout" method="post">
+        <button style="all: unset; cursor: pointer">
+          <a>Logout</a>
+        </button>
+      </form>
+      <% } %>
+    </div>
+  </nav>
+  <hr />
+</header>

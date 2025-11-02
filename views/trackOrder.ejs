@@ -1,0 +1,22 @@
+<div class="container text-center mt-5">
+  <h2>Order Tracking</h2>
+  <p><strong>Tracking ID:</strong> <%= order.trackingId %></p>
+  <p><strong>Status:</strong> 
+    <span class="badge 
+      <%= order.status === 'Delivered' ? 'bg-success' : 
+          order.status === 'Shipped' ? 'bg-info' : 
+          order.status === 'Cancelled' ? 'bg-danger' : 'bg-warning' %>">
+      <%= order.status %>
+    </span>
+  </p>
+
+  <h5 class="mt-4">Items:</h5>
+  <% order.items.forEach(item => { %>
+    <div class="card p-3 my-3 mx-auto" style="max-width: 400px;">
+      <img src="<%= item.product.image %>" class="img-fluid rounded mb-2" alt="">
+      <p><strong><%= item.product.name %></strong></p>
+      <p>Quantity: <%= item.quantity %></p>
+      <p>Price: ₹<%= item.priceAtPurchase %></p>
+    </div>
+  <% }) %>
+</div>

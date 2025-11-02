@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  background-color: #ffffff;
+  padding: 15px 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+nav > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav > div:first-child > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav img {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s;
+}
+
+nav img:hover {
+  transform: scale(1.05);
+}
+
+nav > div:first-child > div a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #E62727;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+
+nav > div:first-child > a {
+  font-size: 1.1rem;
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.5s, color 0.5s, transform 0.5s;
+}
+
+nav > div:first-child > a:hover {
+  background-color: #ece8e8;
+  transform: scale(1.05);
+}
+
+nav > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav > div:last-child a {
+  font-size: 1.1rem;
+  color: #000000;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.5s, color 0.5s, transform 0.5s;
+}
+
+nav > div:last-child a:hover {
+  background-color: #ece8e8;
+  transform: scale(1.05);
+}
+
+hr {
+  margin-top: 10px;
+  border: none;
+  height: 2px;
+  background: linear-gradient(270deg, #E62727, #e27f7f, #f8cdcd);
+  background-size: 600% 100%;
+  animation: hrMove 8s linear infinite;
+  border-radius: 2px;
+}
+
+@keyframes hrMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  nav > div:first-child {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  nav > div:first-child > div a {
+    font-size: 1.5rem;
+  }
+
+  nav > div:first-child > a, nav > div:last-child a {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+
+  nav img {
+    height: 40px;
+  }
+}

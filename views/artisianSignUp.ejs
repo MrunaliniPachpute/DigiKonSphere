@@ -1,0 +1,94 @@
+<div class="signup-container">
+  <h2>Create Your Artisian Account</h2>
+  <form action="/artisian/signUp" method="POST">
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create a password" required />
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required />
+    </div>
+    <div class="form-group">
+      <label for="contact">Contact Number</label>
+      <input type="number" id="contact" name="contact" placeholder="Enter your contact number with country code"
+        required />
+    </div>
+
+    <div class="form-group">
+      <label for="street">Location(street) : </label>
+      <input type="text" id="street" name="street" placeholder="Enter Location(street)" required />
+    </div>
+    <div class="form-group">
+      <label for="city">Location(city) : </label>
+      <input type="text" id="city" name="city" placeholder="Enter your Location(city)" required />
+    </div>
+    <div class="form-group">
+      <label for="state">Location(state) : </label>
+      <input type="text" id="state" name="state" placeholder="Enter your Location(state)" required />
+    </div>
+    <div class="form-group">
+      <label for="country">Location(country) : </label>
+      <input type="text" id="country" name="country" placeholder="Enter your Location(country)" required />
+    </div>
+    <div class="form-group">
+      <label for="pincode">Pincode : </label>
+      <input type="number" id="pincode" name="pincode" placeholder="Enter your Location Pincode" required />
+    </div>
+    <div class="form-group">
+      <label for="craftType">Craft Type</label>
+      <select id="craftType" class="styled-select" name="craftType" required>
+        <option value="">-- Select Craft Type --</option>
+        <option value="Weaver">Weaver</option>
+        <option value="Potter">Potter</option>
+        <option value="Jewelry Maker">Jewelry Maker</option>
+        <option value="Painter">Painter</option>
+        <option value="Carver">Carver</option>
+        <option value="Embroidery Artist">Embroidery Artist</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <!-- Hidden input that appears only if "Other" is chosen -->
+      <div id="otherCraftContainer" style="display: none; margin-top: 10px;">
+        <label for="otherCraft">Please specify your craft type:</label>
+        <input type="text" id="otherCraft" name="otherCraft" placeholder="Enter your craft type" />
+      </div>
+    </div>
+    <button type="submit" class="signup-btn">Sign Up</button>
+    <p class="login-link">
+      Sign Up as User? <a href="/user/signUp">Sign Up</a>
+    </p>
+    <p class="login-link">
+      Already have an account? <a href="/artisian/login">Log In</a>
+    </p>
+  </form>
+</div>
+
+<script>
+  const craftSelect = document.getElementById("craftType");
+  const otherContainer = document.getElementById("otherCraftContainer");
+  const otherInput = document.getElementById("otherCraft");
+
+  craftSelect.addEventListener("change", () => {
+    if (craftSelect.value === "Other") {
+      otherContainer.style.display = "block";
+      otherInput.required = true; // make it mandatory
+    } else {
+      otherContainer.style.display = "none";
+      otherInput.value = "";
+      otherInput.required = false;
+    }
+  });
+</script>

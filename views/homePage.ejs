@@ -1,0 +1,191 @@
+<div class="home-search-filter">
+  <div class="filter-icons">
+    <button class="filter-btn active" data-category="all">
+      <i class="fa-solid fa-earth-europe" style="color: rgb(146, 146, 221);"></i><span>All</span>
+    </button>
+    <button class="filter-btn" data-category="jewellery">
+      <i class="fa-brands fa-artstation" style="color: palevioletred;"></i><span>Jewellery</span>
+    </button>
+    <button class="filter-btn" data-category="pottery">
+      <i class="fa-solid fa-paintbrush" style="color: #FFB400;"></i><span>Pottery</span>
+    </button>
+    <button class="filter-btn" data-category="wall_decor">
+      <i class="fa-solid fa-film" style="color: #8dd490"></i><span>Wall Decor</span>
+    </button>
+    <button class="filter-btn" data-category="other">
+      <i class="fa-solid fa-palette" style="color: rgb(221, 89, 89);"></i><span>Other</span>
+    </button>
+  </div>
+
+  <input type="text" id="productSearch" placeholder="Search products..." />
+</div>
+
+
+<div class="home-products-section">
+  <h2 id="market-title">Explore Market</h2>
+  <div class="home-products-grid">
+  <% if(products && products.length > 0){ %> 
+    <% products.forEach(product => { %>
+      <div class="home-prodCard"
+           data-name="<%= product.name.toLowerCase() %>"
+           data-category="<%= product.product_type.toLowerCase() %>">
+        <div class="home-prodImg">
+          <img src="<%= product.image %>" alt="<%= product.name %>" />
+        </div>
+        <p class="home-img-name"><%= product.name %></p>
+
+        <div class="home-prod-details">
+          <p><strong>Price:</strong> ₹<%= product.price %></p>
+          <p><strong>Quantity:</strong> <%= product.quantity %></p>
+          <p><strong>Seller:</strong> <%= product.owner.username %></p>
+          <a href="/product/<%= product._id %>">
+            <button class="home-prod-details-btn">More details</button>
+          </a>
+        </div>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p class="home-no-products">No products available.</p>
+  <% } %>
+</div>
+
+</div>
+
+<div class="slider-container" style="margin-bottom: 3px;">
+  <div class="slides" id="slides">
+    <img src="/images/BannerImgs/1.png" alt="Banner 1">
+    <img src="/images/BannerImgs/2.png" alt="Banner 2">
+    <img src="/images/BannerImgs/3.png" alt="Banner 3">
+    <img src="/images/BannerImgs/4.png" alt="Banner 4">
+    <img src="/images/BannerImgs/5.png" alt="Banner 5">
+  </div>
+
+  <button class="arrow arrow-left" onclick="prevSlide()">&#10094;</button>
+  <button class="arrow arrow-right" onclick="nextSlide()">&#10095;</button>
+</div>
+
+<div class="home-quote-marquee" style="margin-top: 0px;">
+  <div class="marquee-track">
+    <span class="marquee-item" style="color:#FF6F61;">✨ Decorate with Meaning, Live with Magic.</span>
+    <span class="marquee-item" style="color:#4CAF50;">🪔 Celebrate Craft, Discover Magic.</span>
+    <span class="marquee-item" style="color:#bd1c07;">🎁 Flat 20% off on Handmade Rugs This Week!🎀</span>
+    <span class="marquee-item" style="color:#FFB400;">🎨 Fill Your Home with Stories, Not Just Stuff.</span>
+    <span class="marquee-item" style="color:#fa83fa;">🖌️ Check Out Our New Boho Wall Art Collection!</span>
+    <span class="marquee-item" style="color:#8E44AD;">🧵 Quick Tip: Combine Artisan Textiles for a Cozy Space.</span>
+
+    <!-- duplicate for seamless scroll -->
+    <span class="marquee-item" style="color:#FF6F61;">✨ Decorate with Meaning, Live with Magic.</span>
+    <span class="marquee-item" style="color:#4CAF50;">🪔 Celebrate Craft, Discover Magic.</span>
+    <span class="marquee-item" style="color:#bd1c07;">🎁 Flat 20% off on Handmade Rugs This Week!🎀</span>
+    <span class="marquee-item" style="color:#FFB400;">🎨 Fill Your Home with Stories, Not Just Stuff.</span>
+    <span class="marquee-item" style="color:#fa83fa;">🖌️ Check Out Our New Boho Wall Art Collection!</span>
+    <span class="marquee-item" style="color:#8E44AD;">🧵 Every Handmade Piece Makes a Home Happier.</span>
+  </div>
+</div>
+<hr>
+
+
+<script>
+  const searchInput = document.getElementById('productSearch');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const productCards = document.querySelectorAll('.home-prodCard');
+
+  let activeCategory = 'all';
+
+  // 🔍 Search by name
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    productCards.forEach(card => {
+      const name = card.dataset.name;
+      const category = card.dataset.category;
+      const matchesSearch = name.includes(query);
+      const matchesCategory = (activeCategory === 'all' || category === activeCategory);
+      card.style.display = (matchesSearch && matchesCategory) ? 'flex' : 'none';
+    });
+  });
+
+  // 🏺 Filter by product_type
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeCategory = btn.dataset.category;
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const query = searchInput.value.toLowerCase();
+
+      productCards.forEach(card => {
+        const name = card.dataset.name;
+        const category = card.dataset.category;
+        const matchesSearch = name.includes(query);
+        const matchesCategory = (activeCategory === 'all' || category === activeCategory);
+        card.style.display = (matchesSearch && matchesCategory) ? 'flex' : 'none';
+      });
+    });
+  });
+</script>
+
+<!-- 🌟 STYLING -->
+<style>
+  .home-search-filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px 0 10px 0;
+    gap: 15px;
+  }
+
+  .filter-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .filter-btn {
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 8px 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .filter-btn span {
+    font-size: 13px;
+  }
+
+  .filter-btn.active,
+  .filter-btn:hover {
+    background-color: #c5c3f3;
+    color: #fff;
+    font-weight: 800;
+    border-color: #6c63ff;
+    transform: translateY(-2px);
+  }
+
+  #productSearch {
+    width: 80%;
+    padding: 10px 14px;
+    font-size: 16px;
+    border-radius: 14px;
+    border: 2px solid #ccc;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  #productSearch:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
+  }
+
+  .home-prodCard {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

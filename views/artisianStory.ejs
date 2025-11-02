@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= artisan.username %> | Artisan Story</title>
+  <link rel="stylesheet" href="/css/artisanStory.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1><%= artisan.username %></h1>
+      <p class="location">
+        <i class="fas fa-map-marker-alt"></i>
+        <%= artisan.city || 'Unknown Location' %>
+      </p>
+    </div>
+  </header>
+
+  <main class="story-container">
+    <% if (story) { %>
+      <section class="story-card">
+
+        <% if (story.generatedVideoUrl) { %>
+          <div class="story-video">
+            <video controls>
+              <source src="<%= story.generatedVideoUrl %>" type="video/mp4">
+              Your browser does not support video playback.
+            </video>
+          </div>
+        <% } %>
+
+        <% if (story.images && story.images.length > 0) { %>
+          <div class="story-images">
+            <% story.images.forEach(img => { %>
+              <div class="image-wrapper">
+                <img src="<%= img %>" alt="Story image">
+              </div>
+            <% }) %>
+          </div>
+        <% } %>
+
+        <div class="story-text">
+          <h2><%= story.title || "My Journey" %></h2>
+
+          <% if (story.storyText.length > 250) { %>
+            <p class="story-preview"><%= story.storyText.substring(0, 250) %>...</p>
+            <p class="story-full hidden"><%= story.storyText %></p>
+            <button class="see-more-btn" onclick="toggleStory()">See more</button>
+          <% } else { %>
+            <p><%= story.storyText %></p>
+          <% } %>
+        </div>
+
+      </section>
+    <% } else { %>
+      <div class="no-story">
+        <p>No story available yet for this artisan.</p>
+        <a href="/artisan/<%= artisan._id %>/create-story" class="btn">Create Story</a>
+      </div>
+    <% } %>
+  </main>
+
+  <script src="https://kit.fontawesome.com/a2e0c63b7c.js" crossorigin="anonymous"></script>
+  <script>
+    function toggleStory() {
+      const preview = document.querySelector('.story-preview');
+      const full = document.querySelector('.story-full');
+      const btn = document.querySelector('.see-more-btn');
+      
+      const isExpanded = !full.classList.contains('hidden');
+      if (isExpanded) {
+        full.classList.add('hidden');
+        preview.style.display = 'block';
+        btn.textContent = 'See more';
+      } else {
+        full.classList.remove('hidden');
+        preview.style.display = 'none';
+        btn.textContent = 'See less';
+      }
+    }
+  </script>
+</body>
+</html>

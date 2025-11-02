@@ -1,0 +1,29 @@
+footer {
+  background-color: #fffaf5;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.95rem;
+  color: #413f3f;
+  position: relative;
+}
+
+footer hr {
+  margin: 0 auto 15px;
+  width: 80%;
+  border: none;
+  height: 2px;
+  background: linear-gradient(270deg, #f5e6dc, #d9c4b2, #f5e6dc);
+  background-size: 600% 100%;
+  animation: footerHrMove 10s linear infinite;
+  border-radius: 2px;
+}
+
+@keyframes footerHrMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+footer p {
+  margin: 0;
+}

@@ -1,0 +1,48 @@
+<div class="signup-container">
+  <h2>Edit Product</h2>
+  <form action="/product/editProd/<%= product._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="prod-name">Product Title</label>
+      <input type="text" id="prod-name" name="prod-name" value="<%= product.name %>" required />
+    </div>
+
+    <div class="form-group">
+      <label for="prod-img">Upload New Product Image (optional)</label>
+      <input type="file" id="prod-img" name="prod-img" accept="image/*" />
+      <div>
+        <p>Current Image:</p>
+        <img src="<%= product.image %>" height="200" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" id="price" name="price" min="1" value="<%= product.price %>" required />
+    </div>
+
+    <div class="form-group">
+      <label for="stock">Quantity</label>
+      <input type="number" id="stock" name="stock" min="1" value="<%= product.quantity %>" required />
+    </div>
+
+    <div class="form-group">
+      <label for="prod-details">Product Details</label>
+      <input type="text" id="prod-details" name="prod-details" value="<%= product.details %>" required />
+    </div>
+
+    <div class="form-group">
+      <label for="productType">Product Type:</label>
+      <select id="productType" name="product_type" required class="styled-select">
+        <option value="">--Select--</option>
+        <option value="jewellery" <%=product.product_type==="jewellery" ? "selected" : "" %>>Jewellery</option>
+        <option value="pottery" <%=product.product_type==="pottery" ? "selected" : "" %>>Pottery</option>
+        <option value="wall_decor" <%=product.product_type==="sketch" ? "selected" : "" %>>Wall Decor</option>
+        <option value="other" <%=product.product_type==="other" ? "selected" : "" %>>Other</option>
+      </select>
+    </div>
+
+
+    <button type="submit" class="signup-btn">Edit</button>
+
+  </form>
+</div>

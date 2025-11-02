@@ -1,0 +1,46 @@
+<div class="signup-container">
+  <h2>Add Product</h2>
+  <form action="/artisian/addProd" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="prod-name">Product Title</label>
+      <input type="text" id="prod-name" name="prod-name" placeholder="Enter your product title" required />
+    </div>
+
+    <!-- <div class="form-group">
+        <label for="prod-img">Upload product image URL</label>
+        <input type="text" id="prod-img"  name="prod-img"/>
+      </div> -->
+    <div class="form-group">
+      <label for="prod-img">Upload Product Image</label>
+      <input type="file" id="prod-img" name="prod-img" accept="image/*" required />
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" id="price" name="price" min="1" placeholder="Enter product price" required />
+    </div>
+
+    <div class="form-group">
+      <label for="stock">Quantity</label>
+      <input type="number" id="stock" name="stock" min="0" placeholder="Enter initial stock quantity" required />
+    </div>
+
+    <div class="form-group">
+      <label for="prod-details">Product Details</label>
+      <input type="text" id="prod-details" name="prod-details" placeholder="Describe your product" required />
+    </div>
+
+    <div class="form-group">
+      <label for="productType" class="form-label">Select Product Type:</label>
+      <select id="productType" name="product_type" class="styled-select" required>
+        <option value="">--Select--</option>
+        <option value="jewellery">Jewellery</option>
+        <option value="pottery">Pottery</option>
+        <option value="wall_decor">Wall Decor</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <button type="submit" class="signup-btn">Add Product</button>
+
+  </form>
+</div>

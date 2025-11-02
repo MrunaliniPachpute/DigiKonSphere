@@ -1,0 +1,333 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Product Try-On</title>
+  <style>
+  :root {
+    --accent: #6c63ff;
+    --bg: #f9f9fb;
+    --card-bg: #fff;
+    --text: #222;
+    --muted: #777;
+    --radius: 14px;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  h2 {
+    color: var(--accent);
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    margin: 18px;
+  }
+
+  #controls {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 720px;
+  }
+
+  video, canvas {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background: #eee;
+    width: 640px;
+    max-width: 90vw;
+    height: auto;
+  }
+
+  #placementControls {
+    margin-top: 18px;
+    bottom: 24px;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    border-radius: 50px;
+    padding: 12px 24px;
+    transition: 0.3s ease;
+    backdrop-filter: blur(8px);
+    z-index: 10;
+    align-self: center;
+  }
+
+  #placementControls label {
+    font-weight: 500;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #scaleSlider {
+    width: 160px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  #resetBtn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 3px 6px rgba(108, 99, 255, 0.3);
+  }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 600px) {
+    #placementControls {
+      flex-direction: column;
+      gap: 12px;
+      bottom: 16px;
+      padding: 16px;
+      border-radius: 18px;
+      width: 90%;
+    }
+    #scaleSlider, #resetBtn { width: 100%; }
+  }
+  #video { display: none; }
+  </style>
+</head>
+
+<body>
+  <h2>Try On - <%= productType %></h2>
+
+  <div id="controls">
+    <p id="instructions"></p>
+  </div>
+
+  <video id="video" autoplay playsinline width="640" height="480"></video>
+  <canvas id="canvas" width="640" height="480"></canvas>
+
+  <div id="placementControls" class="hidden">
+    <label>Scale: <input id="scaleSlider" type="range" min="0.1" max="3" step="0.01" value="1"></label>
+    <button id="resetBtn">Reset</button>
+  </div>
+
+  <script>
+(async () => {
+  const PRODUCT_TYPE = "<%= productType %>";
+  const OVERLAY_DATA_URL = "<%= resultImage %>";
+  const video = document.getElementById('video');
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const instructions = document.getElementById('instructions');
+  const placementControls = document.getElementById('placementControls');
+  const scaleSlider = document.getElementById('scaleSlider');
+  const resetBtn = document.getElementById('resetBtn');
+
+  let overlayImg = new Image();
+  overlayImg.src = OVERLAY_DATA_URL;
+
+  async function startCamera() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'user' },
+        audio: false,
+      });
+      video.srcObject = stream;
+      await video.play();
+    } catch (err) {
+      instructions.innerText = 'Unable to access camera: ' + (err.message || err);
+    }
+  }
+
+  // ------------------------ JEWELLERY MODE ------------------------
+  if (PRODUCT_TYPE === 'jewellery') {
+    instructions.innerText = 'Jewellery mode: necklace auto-follows neck — you can drag or scale it.';
+    placementControls.classList.remove('hidden');
+
+    async function loadFaceMeshLibs() {
+      const libs = [
+        'https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js',
+        'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js',
+      ];
+      for (const src of libs) {
+        await new Promise((resolve, reject) => {
+          const s = document.createElement('script');
+          s.src = src;
+          s.onload = resolve;
+          s.onerror = reject;
+          document.head.appendChild(s);
+        });
+      }
+    }
+
+    await loadFaceMeshLibs();
+    await startCamera();
+
+    const faceMesh = new FaceMesh({
+      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`,
+    });
+
+    faceMesh.setOptions({
+      maxNumFaces: 1,
+      refineLandmarks: true,
+      minDetectionConfidence: 0.5,
+      minTrackingConfidence: 0.5,
+    });
+
+    let posOffset = { x: 0, y: 0 };
+    let userScale = 1;
+    let dragging = false;
+    let dragOffset = { x: 0, y: 0 };
+
+    canvas.addEventListener('pointerdown', (ev) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = (ev.clientX - rect.left) * (canvas.width / rect.width);
+      const y = (ev.clientY - rect.top) * (canvas.height / rect.height);
+      const width = overlayImg.width * userScale;
+      const height = overlayImg.height * (width / overlayImg.width);
+      const x0 = canvas.width / 2 - width / 2 + posOffset.x;
+      const y0 = canvas.height / 2 - height / 2 + posOffset.y;
+      if (x >= x0 && x <= x0 + width && y >= y0 && y <= y0 + height) {
+        dragging = true;
+        dragOffset.x = x - posOffset.x;
+        dragOffset.y = y - posOffset.y;
+      }
+    });
+
+    canvas.addEventListener('pointermove', (ev) => {
+      if (!dragging) return;
+      const rect = canvas.getBoundingClientRect();
+      const x = (ev.clientX - rect.left) * (canvas.width / rect.width);
+      const y = (ev.clientY - rect.top) * (canvas.height / rect.height);
+      posOffset.x = x - dragOffset.x;
+      posOffset.y = y - dragOffset.y;
+    });
+
+    window.addEventListener('pointerup', () => (dragging = false));
+    scaleSlider.addEventListener('input', (ev) => (userScale = parseFloat(ev.target.value)));
+    resetBtn.addEventListener('click', () => {
+      posOffset = { x: 0, y: 0 };
+      userScale = 1;
+      scaleSlider.value = 1;
+    });
+
+    faceMesh.onResults(onResults);
+
+    const cam = new Camera(video, {
+      onFrame: async () => await faceMesh.send({ image: video }),
+      width: 640,
+      height: 480,
+    });
+    cam.start();
+
+    function onResults(results) {
+      if (!video.videoWidth) return;
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      if (!overlayImg.complete || !results.multiFaceLandmarks?.length) return;
+
+      const landmarks = results.multiFaceLandmarks[0];
+      const chin = landmarks[152];
+      const leftJaw = landmarks[234];
+      const rightJaw = landmarks[454];
+      const chinX = chin.x * canvas.width;
+      const chinY = chin.y * canvas.height;
+      const leftX = leftJaw.x * canvas.width;
+      const rightX = rightJaw.x * canvas.width;
+      const jawWidth = Math.abs(rightX - leftX);
+
+      const scale = userScale * parseFloat(scaleSlider.value);
+      const width = jawWidth * 1.4 * scale;
+      const height = overlayImg.height * (width / overlayImg.width);
+      const x = chinX - width / 2 + posOffset.x;
+      const y = chinY + height * 0.05 + posOffset.y;
+      ctx.drawImage(overlayImg, x, y, width, height);
+    }
+  }
+
+  // ------------------------ OTHER MODES ------------------------
+  else {
+    instructions.innerText = 'Tap to place, drag to move, and use slider to scale.';
+    placementControls.classList.remove('hidden');
+    await startCamera();
+
+    let placed = false;
+    let pos = { x: canvas.width / 2, y: canvas.height / 2 };
+    let currentScale = 1;
+    let dragging = false;
+    let dragOffset = { x: 0, y: 0 };
+
+    function draw() {
+      if (video.readyState >= 2) {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+      }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      if (overlayImg.complete && placed) {
+        const width = overlayImg.width * currentScale;
+        const height = overlayImg.height * (width / overlayImg.width);
+        const x = pos.x - width / 2;
+        const y = pos.y - height / 2;
+        ctx.drawImage(overlayImg, x, y, width, height);
+      }
+
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    canvas.addEventListener('click', (ev) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = (ev.clientX - rect.left) * (canvas.width / rect.width);
+      const y = (ev.clientY - rect.top) * (canvas.height / rect.height);
+      pos = { x, y };
+      placed = true;
+    });
+
+    canvas.addEventListener('pointerdown', (ev) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = (ev.clientX - rect.left) * (canvas.width / rect.width);
+      const y = (ev.clientY - rect.top) * (canvas.height / rect.height);
+      const width = overlayImg.width * currentScale;
+      const height = overlayImg.height * (width / overlayImg.width);
+      const x0 = pos.x - width / 2;
+      const y0 = pos.y - height / 2;
+      if (x >= x0 && x <= x0 + width && y >= y0 && y <= y0 + height) {
+        dragging = true;
+        dragOffset.x = x - pos.x;
+        dragOffset.y = y - pos.y;
+      }
+    });
+
+    canvas.addEventListener('pointermove', (ev) => {
+      if (!dragging) return;
+      const rect = canvas.getBoundingClientRect();
+      const x = (ev.clientX - rect.left) * (canvas.width / rect.width);
+      const y = (ev.clientY - rect.top) * (canvas.height / rect.height);
+      pos.x = x - dragOffset.x;
+      pos.y = y - dragOffset.y;
+    });
+
+    window.addEventListener('pointerup', () => (dragging = false));
+    scaleSlider.addEventListener('input', (ev) => (currentScale = parseFloat(ev.target.value)));
+    resetBtn.addEventListener('click', () => {
+      placed = false;
+      pos = { x: canvas.width / 2, y: canvas.height / 2 };
+      scaleSlider.value = 1;
+      currentScale = 1;
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

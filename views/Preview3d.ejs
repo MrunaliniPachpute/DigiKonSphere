@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>
+    <%= prod.name || "3D Preview" %>
+  </title>
+  <style>
+    /* 🌌 Reset + Background */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #0e0e0e 0%, #000 100%);
+      overflow: hidden;
+      height: 100vh;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* 🎯 Header */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header h1 {
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    header a {
+      color: #00ffc3;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    header a:hover {
+      color: #76ffb3;
+    }
+
+    /* 🌀 Viewer container */
+    #viewer {
+      width: 100%;
+      height: 100vh;
+      display: block;
+    }
+
+    /* ⏳ Loading overlay */
+    #loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Poppins', sans-serif;
+      color: #00ffc3;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 0.6;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* 🌈 Subtle 3D glow */
+    canvas {
+      box-shadow: 0 0 40px rgba(0, 255, 195, 0.15);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>
+      <%= prod.name || "3D Product Preview" %>
+    </h1>
+    <a href="/home">← Back to Home</a>
+  </header>
+
+  <div id="viewer"></div>
+  <div id="loading">Loading 3D Model...</div>
+
+  <!-- ✅ Three.js non-module setup -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.124.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.124.0/examples/js/loaders/OBJLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.124.0/examples/js/controls/OrbitControls.js"></script>
+
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 1, 3);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000);
+    document.getElementById("viewer").appendChild(renderer.domElement);
+
+    // 💡 Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+    directionalLight.position.set(2, 2, 2);
+    scene.add(ambientLight, directionalLight);
+
+    // 🧭 Controls
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.enableZoom = true;
+
+    // 📦 Load model
+    const loader = new THREE.OBJLoader();
+    const modelUrl = "<%= modelPath %>";
+
+    loader.load(
+      modelUrl,
+      (obj) => {
+        obj.scale.set(1, 1, 1);
+        obj.position.y = -0.5;
+        window.model = obj;
+        scene.add(obj);
+        document.getElementById("loading").style.display = "none";
+        console.log("✅ Model loaded successfully!");
+      },
+      // (xhr) => console.log(`${(xhr.loaded / xhr.total * 100).toFixed(2)}% loaded`),
+      (err) => console.error("❌ Error loading OBJ:", err)
+    );
+
+    // 🎞️ Render loop
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // 📱 Responsive resize
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    // 🧭 Smooth rotation tracking
+    let targetRotation = { x: 0, y: 0 };
+    let currentRotation = { x: 0, y: 0 };
+    const SMOOTH_FACTOR = 0.1; // adjust 0.05–0.2 for feel
+
+    socket.on("gyroData", ({ gx, gy }) => {
+      console.log("Gyro from server:", gx, gy);
+      targetRotation.x = THREE.MathUtils.degToRad(gx * 3);
+      targetRotation.y = THREE.MathUtils.degToRad(gy * 3);
+    });
+
+    // 🎞️ Override your animate() function here (redeclare or edit it)
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+
+      if (window.model) {
+        // Smooth transition between current and target
+        currentRotation.x += (targetRotation.x - currentRotation.x) * SMOOTH_FACTOR;
+        currentRotation.y += (targetRotation.y - currentRotation.y) * SMOOTH_FACTOR;
+
+        window.model.rotation.x = currentRotation.x;
+        window.model.rotation.y = currentRotation.y;
+      }
+
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+
+
+</body>
+
+</html>

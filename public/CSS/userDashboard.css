@@ -1,0 +1,100 @@
+.userDash-container{
+  display: flex;
+  flex-direction: column ;
+  width: 100%;
+  margin: 5px;
+  margin-left: 80px;
+}
+.userDash-horizontal-card {
+  min-width: 35%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  margin: 10px;
+}
+
+.userDash-horizontal-card:hover {
+  transform: translateY(-3px);
+}
+
+.userDash-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userDash-left img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.userDash-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  width: 150px;
+  text-decoration: none;
+  color: black;
+}
+
+.userDash-right {
+  text-align: left;
+}
+
+.userDash-right p {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+}
+
+.userDash-btn-group-h {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  justify-content: flex-end;
+}
+
+.userDash-btn-order,
+.userDash-btn-remove {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.userDash-btn-order {
+  background: #28a745;
+  color: white;
+}
+
+.userDash-btn-order:hover {
+  background: #1e7e34;
+}
+
+.userDash-btn-remove {
+  background: #dc3545;
+  color: white;
+}
+
+.userDash-btn-remove:hover {
+  background: #b52a37;
+}
+
+.cart-items{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.order-status{
+  margin: 2px;
+  padding: 4px;
+  background-color: rgb(240, 168, 168);
+  border-radius: 15px;
+}
