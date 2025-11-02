@@ -40,7 +40,11 @@ The project demonstrates key workflows including:
 - Order placement with **IoT showcase box simulation** (LED & TFT display)
 - Buyer profile and **order history**
 - **Multi-language support** (English, Hindi, and other regional languages for rural artisans)
-  
+
+Here’s a glimpse of the **IOT SETUP** connects the gyroscope sensor with arduino nano to the system, capturing real-time 3d glb files rotation data. :
+
+![WhatsApp Image 2025-11-03 at 12 19 53 AM](https://github.com/user-attachments/assets/f76947e1-a2c1-492d-983b-3227b6c66ea5)
+
 <div align="center">
   
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
