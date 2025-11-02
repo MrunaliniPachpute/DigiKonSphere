@@ -16,7 +16,7 @@
 - It aims to **empower artisans, preserve cultural heritage**, and provide buyers with an **interactive and immersive shopping experience**. 
 - The platform combines **AI-driven marketing**, **AR/3D product previews**, and a **physical IoT showcase**
 
-## 🏠 Homepage Preview
+##  Homepage Preview
 
 Here’s a glimpse of the **DigiKon Sphere** homepage layout:
 
