@@ -26,7 +26,7 @@ Here’s a glimpse of the **DigiKon Sphere** homepage layout:
 
 <div align="center">
   
-![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="400"/>
 
 </div>
 
