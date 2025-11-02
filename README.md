@@ -16,9 +16,15 @@
 - It aims to **empower artisans, preserve cultural heritage**, and provide buyers with an **interactive and immersive shopping experience**. 
 - The platform combines **AI-driven marketing**, **AR/3D product previews**, and a **physical IoT showcase**
 
+##  Homepage Preview
+
+Here’s a glimpse of the **DigiKon Sphere** homepage layout:
+
+| Screenshot 1 | Screenshot 2 |
+|:-------------:|:-------------:|
+| <img width="400" alt="Screenshot (1201)" src="https://github.com/user-attachments/assets/f425aa50-09a7-4f94-9757-d7015e7471ee" /> | <img width="400" alt="Screenshot (1200)" src="https://github.com/user-attachments/assets/390aa5ce-b408-40f6-996c-e049652790b4" /> |
+
 <div align="center">
-  
-![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 </div>
 
@@ -32,7 +38,12 @@ The project demonstrates key workflows including:
 - Order placement with **IoT showcase box simulation** (LED & TFT display)
 - Buyer profile and **order history**
 - **Multi-language support** (English, Hindi, and other regional languages for rural artisans)
-  
+
+Here’s a glimpse of the **IOT SETUP** connects the gyroscope sensor with arduino nano to the system, capturing real-time 3d glb files rotation data. :
+| Screenshot 1 | Screenshot 2 |
+|:-------------:|:-------------:|
+| <img src="https://github.com/user-attachments/assets/5e50f069-8d5b-48fa-a465-2d1a17ab258f" width="400"/> | <img width="400" alt="Screenshot (1200)" src="https://github.com/user-attachments/assets/79ed5c72-6981-4bb8-bac4-50d27ae9878a" /> |
+
 <div align="center">
   
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
