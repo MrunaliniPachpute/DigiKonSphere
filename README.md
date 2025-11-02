@@ -16,6 +16,14 @@
 - It aims to **empower artisans, preserve cultural heritage**, and provide buyers with an **interactive and immersive shopping experience**. 
 - The platform combines **AI-driven marketing**, **AR/3D product previews**, and a **physical IoT showcase**
 
+## 🏠 Homepage Preview
+
+Here’s a glimpse of the **DigiKon Sphere** homepage layout:
+
+| Screenshot 1 | Screenshot 2 |
+|:-------------:|:-------------:|
+| <img width="400" alt="Screenshot (1201)" src="https://github.com/user-attachments/assets/f425aa50-09a7-4f94-9757-d7015e7471ee" /> | <img width="400" alt="Screenshot (1200)" src="https://github.com/user-attachments/assets/390aa5ce-b408-40f6-996c-e049652790b4" /> |
+
 <div align="center">
   
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
