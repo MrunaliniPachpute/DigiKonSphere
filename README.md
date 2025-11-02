@@ -43,7 +43,7 @@ The project demonstrates key workflows including:
 
 Here’s a glimpse of the **IOT SETUP** connects the gyroscope sensor with arduino nano to the system, capturing real-time 3d glb files rotation data. :
 
-![WhatsApp Image 2025-11-03 at 12 19 53 AM](https://github.com/user-attachments/assets/f76947e1-a2c1-492d-983b-3227b6c66ea5)
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="400"/>
 
 <div align="center">
   
