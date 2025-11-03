@@ -39,11 +39,6 @@ The project demonstrates key workflows including:
 - Buyer profile and **order history**
 - **Multi-language support** (English, Hindi, and other regional languages for rural artisans)
 
-Here’s a glimpse of the **IOT SETUP** connects the gyroscope sensor with arduino nano to the system, capturing real-time 3d glb files rotation data. :
-| Screenshot 1 | Screenshot 2 |
-|:-------------:|:-------------:|
-| | |
-
 <div align="center">
   
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -52,19 +47,19 @@ Here’s a glimpse of the **IOT SETUP** connects the gyroscope sensor with ardui
 
 <h3>Key Features</h3>
 
+| No. | Feature | Description | Preview |
+|-----|----------|--------------|----------|
+| 1 | **3D Object Modelling using Tripo SR & IoT Setup** | Users can sense, remote control and recreate real-world artisan objects into 3D models using **Tripo SR** and live **IoT sensor data** for precision. |  <img src="https://github.com/user-attachments/assets/5e50f069-8d5b-48fa-a465-2d1a17ab258f" width="200"/> <img width="200" alt="Screenshot (1200)" src="https://github.com/user-attachments/assets/79ed5c72-6981-4bb8-bac4-50d27ae9878a" /> |
+| 2 | **AR Preview Tool** | Real-time product visualization using **Google Gemini 2.5 Flash**, **Facemesh**, and **MediaPipe**. Users can virtually try products through AR. | <img src="https://github.com/user-attachments/assets/db905723-dc7b-4441-bb44-c8847009b52b" width="200"/> <img src="https://github.com/user-attachments/assets/bfa1ff53-a59d-4cbb-aafd-babfe4b0c77f" width="200"/> |
+| 3 | **AI-Generated Artisan Storytelling Page** | Powered by **Gemini Flash 2.5**, **Vertex AI**, and **FFmpeg** — automatically generates creative backstories, product making videos, and artisan highlights. | <img src="https://github.com/user-attachments/assets/6cd8a3a5-25d8-46b0-9998-38cd5ed50550" width="200"/> <img src="https://github.com/user-attachments/assets/7799e43d-d68b-4ca1-8153-102bb1114d31" width="200"/> |
+
+
 - **Artisan Dashboard:** Upload products, set prices, manage inventory, generate AI stories/videos.
 - **Buyer Marketplace:** Browse products, view AR/3D previews, place orders, and view order history.
 - **IoT Showcase Box:** Displays product image on TFT LCD and LED indicates order status (green for success, red for issue).
 - **AI Marketing Tools:** Auto product description, storytelling, video generation, and social media push.
 - **Delivery Integration:** Supports APIs like Amazon, Flipkart, or India Post (conceptual).
 - **Multilingual Support:** Ensures artisans can manage products and marketing in multiple languages.
-
-
-| No. | Feature | Description | Preview |
-|-----|----------|--------------|----------|
-| 1 | **3D Object Modelling using Tripo SR & IoT Setup** | Users can sense, remote control and recreate real-world artisan objects into 3D models using **Tripo SR** and live **IoT sensor data** for precision. |  <img src="https://github.com/user-attachments/assets/5e50f069-8d5b-48fa-a465-2d1a17ab258f" width="200"/> <img width="200" alt="Screenshot (1200)" src="https://github.com/user-attachments/assets/79ed5c72-6981-4bb8-bac4-50d27ae9878a" /> |
-| 2 | **AR Preview Tool** | Real-time product visualization using **Google Gemini 2.5 Flash**, **Facemesh**, and **MediaPipe**. Users can virtually try products through AR. | <img src="https://github.com/user-attachments/assets/db905723-dc7b-4441-bb44-c8847009b52b" width="200"/> <img src="https://github.com/user-attachments/assets/bfa1ff53-a59d-4cbb-aafd-babfe4b0c77f" width="200"/> |
-| 3 | **AI-Generated Artisan Storytelling Page** | Powered by **Gemini Flash 2.5**, **Vertex AI**, and **FFmpeg** — automatically generates creative backstories, product making videos, and artisan highlights. | <img src="https://github.com/user-attachments/assets/6cd8a3a5-25d8-46b0-9998-38cd5ed50550" width="200"/> <img src="https://github.com/user-attachments/assets/7799e43d-d68b-4ca1-8153-102bb1114d31" width="200"/> |
 
 ---
 <div align="center">
