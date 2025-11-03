@@ -135,11 +135,12 @@ module.exports.postAddProd = async (req, res) => {
 
     let imageUrl = null;
 
-    // If user uploaded a file
+    // If file uploaded
     if (req.file) {
       const gcsPath = `products/${req.user._id}/${Date.now()}_${req.file.originalname}`;
-      imageUrl = await uploadToGCS(req.file.path, gcsPath);
+      imageUrl = await uploadToGCS(req.file.buffer, gcsPath);
     }
+
 
     const newProd = new Product({
       name,
