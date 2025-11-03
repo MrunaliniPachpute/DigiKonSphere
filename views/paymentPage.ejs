@@ -39,7 +39,7 @@
             body: JSON.stringify({
               productId: "<%= product._id %>",
               quantity: <%= quantity %>,
-              totalAmount: <%= totalAmount %>,
+              totalAmount : <%= totalAmount %>
         }),
         });
 
@@ -90,10 +90,10 @@
     const statusDiv = document.getElementById("payment-status");
 
     if (result.success) {
-      statusDiv.innerHTML = `<div class='alert alert-success'>✅ Payment successful! Redirecting...</div>`;
+      statusDiv.innerHTML = `<div class='alert alert-success'> Payment successful! Redirecting...</div>`;
       setTimeout(() => window.location.href = "/user/dashboard", 2000);
     } else {
-      statusDiv.innerHTML = `<div class='alert alert-danger'>❌ Payment verification failed. Please try again.</div>`;
+      statusDiv.innerHTML = `<div class='alert alert-danger'> Payment verification failed. Please try again.</div>`;
     }
         },
     theme: {
@@ -103,7 +103,7 @@
     const rzp = new Razorpay(options);
     rzp.on('payment.failed', function (response) {
       document.getElementById("payment-status").innerHTML =
-        `<div class='alert alert-danger'>❌ Payment Failed! Reason: ${response.error.description}</div>`;
+        `<div class='alert alert-danger'> Payment Failed! Reason: ${response.error.description}</div>`;
     });
     rzp.open();
     });

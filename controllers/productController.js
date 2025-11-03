@@ -232,7 +232,7 @@ module.exports.tryOnProduct = async (req, res) => {
     const baseUrl = `${req.protocol}://${req.get("host")}`;
     let imageSrc = product.image;
 
-    // ✅ Pick correct image source (local or remote)
+    //  Pick correct image source (local or remote)
     if (!imageSrc) {
       imageSrc = "/images/necklace.png";
     }
@@ -242,7 +242,7 @@ module.exports.tryOnProduct = async (req, res) => {
       typeof imageSrc === "string" &&
       (imageSrc.startsWith("http://") || imageSrc.startsWith("https://"));
 
-    // ✅ Try to find local path if not a URL
+    //  Try to find local path if not a URL
     const localPath = !isPublic ? findLocalImagePath(imageSrc) : null;
     if (!isPublic && !localPath) {
       throw new Error("Local image not found: " + imageSrc);
@@ -257,7 +257,7 @@ const safeUrl = encodeURI(imageSrc);
     // For preview on frontend
     const originalImageForClient = isPublic ? imageSrc : baseUrl + imageSrc;
 
-    // ✅ Render view with product_type
+    //  Render view with product_type
     res.render("tryOn", {
       productId: id,
       productType: product.product_type || "other",
@@ -265,9 +265,15 @@ const safeUrl = encodeURI(imageSrc);
       resultImage: resultImageDataUrl,
     });
   } catch (err) {
-    console.error("❌ Error in /product/tryOn/:id ->", err.message || err);
+    console.error(" Error in /product/tryOn/:id ->", err.message || err);
     res
       .status(500)
       .send("Error processing image: " + (err.message || "unknown"));
   }
 };
+
+
+module.exports.Preview3d = (req,res)=>{
+  req.flash("error", "COMP4 Not found. Kindly connect your IOT Setup");
+  res.redirect("/home");
+}

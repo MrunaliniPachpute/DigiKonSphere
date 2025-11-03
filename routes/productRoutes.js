@@ -19,5 +19,5 @@ router
 router.get("/:id/addToCart", isRoleUser, productController.addToCart);
 
 router.get("/tryOn/:id", productController.tryOnProduct)
-
+router.get("3dPreview/:id", productController.Preview3d);
 module.exports = router;

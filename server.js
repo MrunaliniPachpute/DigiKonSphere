@@ -23,15 +23,15 @@ try {
 
   // catch async errors (like “COM4 not found”)
   port.on("error", (err) => {
-    console.warn("⚠️ SerialPort error:", err.message);
+    console.warn("SerialPort error:", err.message);
   });
 
-  port.on("open", () => console.log("✅ Serial connection open on COM4"));
+  port.on("open", () => console.log("Serial connection open on COM4"));
 
   parser = port.pipe(new ReadlineParser({ delimiter: "\n" }));
-  console.log("🔌 SerialPort initialized successfully");
+  console.log("SerialPort initialized successfully");
 } catch (err) {
-  console.warn("⚠️ SerialPort initialization failed:", err.message);
+  console.warn( "SerialPort initialization failed:", err.message);
 }
 
 const axios = require("axios");
@@ -92,11 +92,11 @@ app.get("/product/3dPreview/:id", async (req, res) => {
 
     if (!fs.existsSync(inputsDir)) fs.mkdirSync(inputsDir, { recursive: true });
     if (!fs.existsSync(outputsDir)) fs.mkdirSync(outputsDir, { recursive: true });
-    console.log("📁 Directories initialized.");
+    console.log("Directories initialized.");
 
     const modelPath = path.join(outputsDir, "0", "mesh.obj");
     if (fs.existsSync(modelPath)) {
-      console.log("✅ Using cached model:", modelPath);
+      console.log("Using cached model:", modelPath);
       return res.render("Preview3d", {
         prod: product,
         modelPath: `/models/${id}/0/mesh.obj`,
@@ -156,7 +156,6 @@ app.use("/product/", productRoutes);
 
 const PORT = process.env.PORT || 3000;
 
-// ✅ Safe parser usage
 if (parser) {
   parser.on("data", (data) => {
     try {
@@ -174,7 +173,7 @@ if (parser) {
     }
   });
 } else {
-  console.log("⚠️ Gyroscope parser not initialized (non-IOT mode)");
+  console.log("Gyroscope parser not initialized (non-IOT mode)");
 }
 
 server.listen(PORT, () => {
