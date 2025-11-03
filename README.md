@@ -59,7 +59,7 @@ The project demonstrates key workflows including:
 - **IoT Showcase Box:** Displays product image on TFT LCD and LED indicates order status (green for success, red for issue).
 - **AI Marketing Tools:** Auto product description, storytelling, video generation, and social media push.
 - **Delivery Integration:** Supports APIs like Amazon, Flipkart, or India Post (conceptual).
-- **Multilingual Support:** Ensures artisans can manage products and marketing in multiple languages.
+<!--  - **Multilingual Support:** Ensures artisans can manage products and marketing in multiple languages. -->
 
 ---
 <div align="center">
