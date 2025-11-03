@@ -32,7 +32,7 @@ Here’s a glimpse of the **DigiKon Sphere** homepage layout:
 
 The project demonstrates key workflows including:
 - **Deployment Link:** https://digikonsphere.onrender.com/home
-- **Project video Link:** https://drive.google.com/file/d/1UQQQOwchoOQJaZhYgFFOZuS7aGE44GIR/view?usp=sharing
+- **Project Video Link:** [Click here](https://drive.google.com/file/d/1UQQQOwchoOQJaZhYgFFOZuS7aGE44GIR/view?usp=sharing)
 - Artisan product upload with optional **AI story/video generation**
 - Buyer browsing via web/VR or IoT TFT LCD
 - AR/3D product preview
