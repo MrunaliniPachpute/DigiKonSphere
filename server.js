@@ -9,7 +9,7 @@ connectDB();
 const setupMiddleware = require("./middlewares/middleware");
 setupMiddleware(app);
 app.use((req, res, next) => {
-  res.locals.googleMapsApiKey = process.env.Google_Maps_API; 
+  res.locals.googleMapsApiKey = process.env.GOOGLE_MAPS_API; 
   next();
 });
 const { SerialPort, ReadlineParser } = require("serialport");
