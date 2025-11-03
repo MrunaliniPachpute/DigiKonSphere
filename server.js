@@ -7,7 +7,10 @@ const connectDB = require("./config/db");
 connectDB();
 const setupMiddleware = require("./middlewares/middleware");
 setupMiddleware(app);
-
+app.use((req, res, next) => {
+  res.locals.googleMapsApiKey = process.env.Google_Maps_API; 
+  next();
+});
 const { SerialPort, ReadlineParser } = require("serialport");
 const { Server } = require("socket.io");
 const http = require("http");
@@ -83,10 +86,7 @@ app.use("/user/", userRoutes);
 app.use("/artisian/", artisianRoutes);
 app.use("/product/", productRoutes);
 
-app.use((req, res, next) => {
-  res.locals.googleMapsApiKey = process.env.Google_Maps_API; 
-  next();
-});
+
 
 const PORT = process.env.PORT || 3000;
 
