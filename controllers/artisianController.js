@@ -157,7 +157,7 @@ module.exports.postAddProd = async (req, res) => {
     res.redirect("/artisian/dashboard");
   } catch (err) {
     console.error("Error adding product:", err);
-    req.flash("error", "Failed to add product. Try again.");
+    req.flash("error", "Failed to add product. Try again.",err.message, err.stack);
     res.redirect("/artisian/addProd");
   }
 };
