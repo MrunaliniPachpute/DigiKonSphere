@@ -117,7 +117,8 @@ The project demonstrates key workflows including:
 
 
 <p align="center" style="font-style: italic; color: #8B4513; margin-top: 10px;">
-Focuses on <strong>interactive design, AI integration, multilingual support, and IoT simulation</strong> for producing impact.
+  Focuses on <strong>interactive design, AI integration, multilingual support, and IoT simulation</strong> for producing impact.
+<!-- Focuses on <strong>interactive design, AI integration, multilingual support, and IoT simulation</strong> for producing impact. -->
 </p>
   
 <div align="center">
