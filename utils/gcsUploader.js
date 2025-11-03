@@ -2,10 +2,9 @@ const { Storage } = require("@google-cloud/storage");
 const path = require("path");
 const fs = require("fs");
 
-// Initialize storage with your service account
 const storage = new Storage({
   projectId: process.env.PROJECT_ID,
-  keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS 
+  keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS
     ? path.resolve(process.env.GOOGLE_APPLICATION_CREDENTIALS)
     : undefined,
 });
@@ -13,18 +12,39 @@ const storage = new Storage({
 const bucketName = process.env.bucketName;
 const bucket = storage.bucket(bucketName);
 
-async function uploadToGCS(localFilePath, destination) {
+/**
+ * Upload to Google Cloud Storage
+ * Works with either:
+ * - local file path (string)
+ * - in-memory buffer (Buffer)
+ */
+async function uploadToGCS(fileOrBuffer, destination) {
   try {
-    await bucket.upload(localFilePath, {
-      destination,
-      metadata: {
-        cacheControl: "public, max-age=31536000",
-      },
-    });
+    let file;
+
+    if (Buffer.isBuffer(fileOrBuffer)) {
+      file = bucket.file(destination);
+      await file.save(fileOrBuffer, {
+        resumable: false,
+        metadata: {
+          cacheControl: "public, max-age=31536000",
+        },
+      });
+    } 
+    else if (typeof fileOrBuffer === "string") {
+      await bucket.upload(fileOrBuffer, {
+        destination,
+        metadata: {
+          cacheControl: "public, max-age=31536000",
+        },
+      });
+      fs.unlinkSync(fileOrBuffer); 
+    } 
+    else {
+      throw new Error("Invalid file type passed to uploadToGCS");
+    }
 
     // await bucket.file(destination).makePublic();
-
-    fs.unlinkSync(localFilePath);
 
     return `https://storage.googleapis.com/${bucketName}/${destination}`;
   } catch (err) {
