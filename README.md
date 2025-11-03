@@ -42,7 +42,7 @@ The project demonstrates key workflows including:
 Here’s a glimpse of the **IOT SETUP** connects the gyroscope sensor with arduino nano to the system, capturing real-time 3d glb files rotation data. :
 | Screenshot 1 | Screenshot 2 |
 |:-------------:|:-------------:|
-| <img src="https://github.com/user-attachments/assets/5e50f069-8d5b-48fa-a465-2d1a17ab258f" width="400"/> | <img width="400" alt="Screenshot (1200)" src="https://github.com/user-attachments/assets/79ed5c72-6981-4bb8-bac4-50d27ae9878a" /> |
+| | |
 
 <div align="center">
   
@@ -58,53 +58,68 @@ Here’s a glimpse of the **IOT SETUP** connects the gyroscope sensor with ardui
 - **AI Marketing Tools:** Auto product description, storytelling, video generation, and social media push.
 - **Delivery Integration:** Supports APIs like Amazon, Flipkart, or India Post (conceptual).
 - **Multilingual Support:** Ensures artisans can manage products and marketing in multiple languages.
-  
+
+
+| No. | Feature | Description | Preview |
+|-----|----------|--------------|----------|
+| 1 | **3D Object Modelling using Tripo SR & IoT Setup** | Users can sense, remote control and recreate real-world artisan objects into 3D models using **Tripo SR** and live **IoT sensor data** for precision. |  <img src="https://github.com/user-attachments/assets/5e50f069-8d5b-48fa-a465-2d1a17ab258f" width="200"/> <img width="200" alt="Screenshot (1200)" src="https://github.com/user-attachments/assets/79ed5c72-6981-4bb8-bac4-50d27ae9878a" /> |
+| 2 | **AR Preview Tool** | Real-time product visualization using **Google Gemini 2.5 Flash**, **Facemesh**, and **MediaPipe**. Users can virtually try products through AR. | <img src="https://github.com/user-attachments/assets/db905723-dc7b-4441-bb44-c8847009b52b" width="200"/> <img src="https://github.com/user-attachments/assets/bfa1ff53-a59d-4cbb-aafd-babfe4b0c77f" width="200"/> |
+| 3 | **AI-Generated Artisan Storytelling Page** | Powered by **Gemini Flash 2.5**, **Vertex AI**, and **FFmpeg** — automatically generates creative backstories, product making videos, and artisan highlights. | <img src="https://github.com/user-attachments/assets/6cd8a3a5-25d8-46b0-9998-38cd5ed50550" width="200"/> <img src="https://github.com/user-attachments/assets/7799e43d-d68b-4ca1-8153-102bb1114d31" width="200"/> |
+
+---
 <div align="center">
   
 ![Rainbow Divider](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 </div>
 
-<h3>Technologies</h3>
+<h3>🧠 Technologies</h3>
 
-<table align="center" style="border-collapse: collapse; width: 80%; font-family: 'Courier New', monospace;">
+<table align="center" style="border-collapse: collapse; width: 85%; font-family: 'Courier New', monospace;">
   <thead>
     <tr style="background-color: #FFDAB9; color: #8B4513; font-size: 16px;">
       <th style="padding: 10px; border: 2px solid #8B4513;">Category</th>
-      <th style="padding: 10px; border: 2px solid #8B4513;">Technologies</th>
+      <th style="padding: 10px; border: 2px solid #8B4513;">Technologies Used</th>
     </tr>
   </thead>
   <tbody>
     <tr style="background-color: #FFF5E1;">
       <td style="padding: 8px; border: 2px solid #8B4513;">🖥️ Frontend / Templating</td>
-      <td style="padding: 8px; border: 2px solid #8B4513;">EJS, HTML, CSS, JavaScript</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">EJS, HTML5, CSS3, Bootstrap, JavaScript (ES6)</td>
     </tr>
     <tr style="background-color: #FFE4C4;">
-      <td style="padding: 8px; border: 2px solid #8B4513;">⚙️ Backend (planned)</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">⚙️ Backend</td>
       <td style="padding: 8px; border: 2px solid #8B4513;">Node.js, Express.js</td>
     </tr>
     <tr style="background-color: #FFF5E1;">
-      <td style="padding: 8px; border: 2px solid #8B4513;">💾 Database (planned)</td>
-      <td style="padding: 8px; border: 2px solid #8B4513;">MongoDB / Firebase</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">💾 Database</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">MongoDB Atlas</td>
     </tr>
     <tr style="background-color: #FFE4C4;">
-      <td style="padding: 8px; border: 2px solid #8B4513;">☁️ AI & Cloud</td>
-      <td style="padding: 8px; border: 2px solid #8B4513;">Azure Cognitive Services / Azure OpenAI</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">☁️ Google AI & Cloud</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">
+        Google Gemini 2.5 Flash, Vertex AI, MediaPipe, Facemesh, Google Cloud Storage, Firebase Authentication
+      </td>
     </tr>
     <tr style="background-color: #FFF5E1;">
-      <td style="padding: 8px; border: 2px solid #8B4513;">🔌 IoT</td>
-      <td style="padding: 8px; border: 2px solid #8B4513;">Arduino / ESP32, TFT LCD 1.8-inch, LED lights</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">🔩 3D Modelling & AR Layer</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">Tripo SR, Three.js, WebXR, ARCore (integration planned)</td>
     </tr>
     <tr style="background-color: #FFE4C4;">
-      <td style="padding: 8px; border: 2px solid #8B4513;">🕶️ AR / 3D Previews</td>
-      <td style="padding: 8px; border: 2px solid #8B4513;">WebAR / Three.js</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">🔌 IoT Integration</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">ESP32, Arduino, Motion & Gyroscope Sensors</td>
     </tr>
     <tr style="background-color: #FFF5E1;">
+      <td style="padding: 8px; border: 2px solid #8B4513;">🎨 AI Storytelling & Media</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">Gemini Flash 2.5, Vertex AI Generative APIs, FFmpeg (for AI-driven artisan video synthesis)</td>
+    </tr>
+    <tr style="background-color: #FFE4C4;">
       <td style="padding: 8px; border: 2px solid #8B4513;">💳 Payment Integration</td>
-      <td style="padding: 8px; border: 2px solid #8B4513;">UPI APIs</td>
+      <td style="padding: 8px; border: 2px solid #8B4513;">Google Pay APIs / UPI Payment Gateway</td>
     </tr>
   </tbody>
 </table>
+
 
 <p align="center" style="font-style: italic; color: #8B4513; margin-top: 10px;">
 Focuses on <strong>interactive design, AI integration, multilingual support, and IoT simulation</strong> for producing impact.
