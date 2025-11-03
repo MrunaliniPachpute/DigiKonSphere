@@ -106,7 +106,7 @@ module.exports.putEditedProduct =async (req, res) => {
     // If new file uploaded
     if (req.file) {
       const gcsPath = `products/${req.user._id}/${Date.now()}_${req.file.originalname}`;
-      const newImageUrl = await uploadToGCS(req.file.path, gcsPath);
+      const newImageUrl = await uploadToGCS(req.file.buffer, gcsPath);
       product.image = newImageUrl;
     }
 
