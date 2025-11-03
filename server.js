@@ -83,6 +83,11 @@ app.use("/user/", userRoutes);
 app.use("/artisian/", artisianRoutes);
 app.use("/product/", productRoutes);
 
+app.use((req, res, next) => {
+  res.locals.googleMapsApiKey = process.env.GOOGLE_MAPS_API; 
+  next();
+});
+
 const PORT = process.env.PORT || 3000;
 
 if (parser) {
