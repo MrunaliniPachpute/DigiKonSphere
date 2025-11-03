@@ -16,9 +16,9 @@
         <button style="all: unset; cursor: pointer"><a>Login</a></button>
       </form>
       <% } else { %> <% if (currentUser.constructor.modelName==="Artisian" ){%>
-        <a href="http://localhost:3000/artisian/dashboard">My Account</a>
+        <a href="/artisian/dashboard">My Account</a>
       <% }else{ %>
-          <a href="http://localhost:3000/user/dashboard">My Account</a>
+          <a href="/user/dashboard">My Account</a>
       <% } %>
       <form action="/logout" method="post">
         <button style="all: unset; cursor: pointer">
